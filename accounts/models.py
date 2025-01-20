@@ -14,7 +14,7 @@ first name
 last name 
 email
 '''
-class profile(models.Model):
+class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     phon_number=models.CharField(max_length=15,null=True,blank=True)
     address=models.CharField(max_length=20,null=True,blank=True)
@@ -25,6 +25,6 @@ class profile(models.Model):
 @receiver(post_save, sender=User)
 def create_user_profile(sender,instance,created,**kwargs):
     if created:
-        profile.objects.create(user=instance)
+        Profile.objects.create(user=instance)
 
 
