@@ -35,7 +35,7 @@ def profile_edit(request):
             userform.save()
             myform=profile_form.save(commit=False)
             myform.user=request.user
-            myform.save()
+            myform.save() 
             return redirect('/accounts/profile')
     else:#show
         userform=UserForm(instance=request.user)
